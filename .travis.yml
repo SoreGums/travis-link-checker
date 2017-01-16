@@ -1,0 +1,35 @@
+# Developer:
+# ---------
+# Name:      Maik Ellerbrock
+# GitHub:    https://github.com/ellerbrock
+# Twitter:   https://twitter.com/frapsoft
+# Docker:    https://hub.docker.com/u/ellerbrock
+# Quay:      https://quay.io/user/ellerbrock
+#
+# Description:
+# -----------
+# Travis Test: Check Links
+# 
+# In this Example we run a Link Test for the Site:
+# https://hub.docker.com/r/ellerbrock/link-checker/
+#
+
+sudo: false
+
+language: bash
+
+services:
+  - docker
+
+
+install:
+  - docker pull ellerbrock/link-checker
+
+script:
+  - docker run ellerbrock/link-checker https://hub.docker.com/r/ellerbrock/link-checker/
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
